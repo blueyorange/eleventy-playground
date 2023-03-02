@@ -13,11 +13,11 @@
 :root {
   --bg: white;
   --bg-accent: rgb(205, 215, 214);
+  --primary-accent-bg: rgb(16, 37, 66);
   --accent: rgb(248, 112, 96);
   --text: rgb(39, 45, 45);
   --text-light: rgb(184, 197, 214);
   --header-bg: rgb(179, 163, 148);
-  --dark-blue: rgb(16, 37, 66);
 }
 
 html {
@@ -57,7 +57,7 @@ h3 {
 
 h1 {
   font-family: "Tilt Warp";
-  background-color: var(--dark-blue);
+  background-color: var(--primary-accent-bg);
   color: var(--text-light);
 }
 
@@ -89,12 +89,44 @@ main {
   padding-top: 1.5rem;
 }
 
-nav li {
+ul.topnav li {
   display: inline-block;
   padding-right: 2rem;
 }
 
-nav li .active {
+ul.topnav .active {
   border-bottom: 1px solid var(--accent);
   color: var(--text);
+}
+
+/* Style the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: var(--primary-accent-bg);
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: var(--text-light);
+  content: ">";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: var(--text-light);
+  text-decoration: underline;
 }

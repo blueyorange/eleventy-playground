@@ -10,15 +10,33 @@
   <body>
     <header>
       <nav>
-        <ul>
-          {% for entry in collections.all %}
+        <ul class="topnav">
+          {% for entry in collections.top %}
 					<li><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page" class="active"{% endif %}>{{ entry.data.title }}</a></li>
 				{% endfor %}
         </ul>
       </nav>
     </header>
     <main>
+      <nav>
+        <ul class="breadcrumb">
+        {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
+        {% for entry in navPages %}
+        <li><a href="{{ entry.url }}">{{ entry.key }}</a></li>
+        {% endfor %}
+      </ul>
+      </nav>
+      <nav>
+        <ul>
+          {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
+          {% for navPage in navPages %}
+          <li>{{ eleventyNavigation.key }}</li>
+          {% endfor %}
+      </ul>
+      </nav>
+      <article>
         {{ content | safe }}
+      </article>
     </main>
   </body>
 </html>

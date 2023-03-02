@@ -1,6 +1,10 @@
 ---
 title: about
 layout: base.njk
+date: 2023-02-01
+tags: top
+eleventyNavigation:
+  key: about
 ---
 
 # About me
